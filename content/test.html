@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errorly Extension Test Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .test-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .contenteditable {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+            min-height: 80px;
+            background: white;
+            margin-bottom: 10px;
+        }
+        
+        .contenteditable:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .instructions h4 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        
+        .sample-text {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: transform 0.2s ease;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        .test-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .test-word {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .test-word:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="status" id="status">🎭 Errorly Test Page Loaded</div>
+    
+    <div class="container">
+        <h1>🤪 Errorly Extension Test Page</h1>
+        <p class="subtitle">Test your hilariously unhelpful autocorrect extension here!</p>
+        
+        <div class="instructions">
+            <h4>📋 How to Test:</h4>
+            <ol>
+                <li>Make sure your Errorly extension is installed and enabled</li>
+                <li>Type common words in the fields below</li>
+                <li>Press <strong>Tab</strong>, <strong>Enter</strong>, or <strong>click outside</strong> the field</li>
+                <li>Watch for funny "corrections" and notifications!</li>
+                <li>Check your extension popup for statistics</li>
+            </ol>
+        </div>
+        
+        <!-- Test Section 1: Basic Text Input -->
+        <div class="test-section">
+            <h3>🔤 Basic Text Input Test</h3>
+            <input type="text" placeholder="Type: the quick brown fox" id="test1">
+            <input type="text" placeholder="Type: you are very good" id="test2">
+            <input type="email" placeholder="Type: hello@example.com" id="test3">
+        </div>
+        
+        <!-- Test Section 2: Textarea -->
+        <div class="test-section">
+            <h3>📝 Textarea Test</h3>
+            <textarea placeholder="Type a longer message here with words like: the, you, and, are, for, that, with, have, this, will, your, from, they, know, want, been, good, much, some, time, very, when, come, here, just, like, over, also, back, after, use, two, how, work, first, well, way, even, new, years, most, give, day, same, these, used, each, which, she, many, what, would, make, him, into, has, more, her, go, see, no, if, out, so, said, up, its, about, who, get, all, were, there, can, had, do, may, old, now, find, any, man, own, say, may, use" id="testTextarea"></textarea>
+        </div>
+        
+        <!-- Test Section 3: Contenteditable -->
+        <div class="test-section">
+            <h3>✏️ Rich Text Editor Test</h3>
+            <div class="contenteditable" contenteditable="true" id="testContenteditable">
+                Click here and type something like: "Hello, how are you today? This is a test of the extension."
+            </div>
+        </div>
+        
+        <!-- Test Section 4: Quick Test Words -->
+        <div class="test-section">
+            <h3>⚡ Quick Test Words</h3>
+            <p>Click any word below to add it to the test input:</p>
+            <input type="text" placeholder="Words will appear here..." id="quickTest">
+            <div class="test-words">
+                <span class="test-word" onclick="addWord('the')">the</span>
+                <span class="test-word" onclick="addWord('you')">you</span>
+                <span class="test-word" onclick="addWord('and')">and</span>
+                <span class="test-word" onclick="addWord('are')">are</span>
+                <span class="test-word" onclick="addWord('for')">for</span>
+                <span class="test-word" onclick="addWord('that')">that</span>
+                <span class="test-word" onclick="addWord('with')">with</span>
+                <span class="test-word" onclick="addWord('have')">have</span>
+                <span class="test-word" onclick="addWord('this')">this</span>
+                <span class="test-word" onclick="addWord('will')">will</span>
+                <span class="test-word" onclick="addWord('your')">your</span>
+                <span class="test-word" onclick="addWord('good')">good</span>
+                <span class="test-word" onclick="addWord('know')">know</span>
+                <span class="test-word" onclick="addWord('want')">want</span>
+                <span class="test-word" onclick="addWord('time')">time</span>
+                <span class="test-word" onclick="addWord('very')">very</span>
+                <span class="test-word" onclick="addWord('when')">when</span>
+                <span class="test-word" onclick="addWord('come')">come</span>
+                <span class="test-word" onclick="addWord('here')">here</span>
+                <span class="test-word" onclick="addWord('like')">like</span>
+            </div>
+        </div>
+        
+        <!-- Sample Text for Copy/Paste -->
+        <div class="test-section">
+            <h3>📄 Sample Text for Testing</h3>
+            <p>Copy and paste this text into any field above:</p>
+            <div class="sample-text">
+Hello! How are you today? I hope you are doing well. This is a test message with many common words that should be corrected by the extension. You will see that words like the, and, for, that, with, have, this, will, your, from, they, know, want, been, good, much, some, time, very, when, come, here, just, like, and many more should get hilariously "fixed" by Errorly. Have fun testing!
+            </div>
+        </div>
+        
+        <!-- Control Buttons -->
+        <div class="test-section">
+            <h3>🎮 Test Controls</h3>
+            <button class="button" onclick="clearAll()">🗑️ Clear All Fields</button>
+            <button class="button" onclick="fillSample()">📝 Fill Sample Text</button>
+            <button class="button" onclick="showTips()">💡 Show Tips</button>
+            <button class="button" onclick="testNotifications()">🔔 Test Notifications</button>
+        </div>
+        
+        <!-- Results Display -->
+        <div class="test-section">
+            <h3>📊 Test Results</h3>
+            <div id="results">
+                <p>Start typing to see results here...</p>
+                <p><strong>Corrections detected:</strong> <span id="correctionCount">0</span></p>
+                <p><strong>Last correction:</strong> <span id="lastCorrection">None yet</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let correctionCount = 0;
+        
+        function addWord(word) {
+            const input = document.getElementById('quickTest');
+            input.value += (input.value ? ' ' : '') + word;
+            input.focus();
+        }
+        
+        function clearAll() {
+            document.querySelectorAll('input[type="text"], input[type="email"], textarea').forEach(field => {
+                field.value = '';
+            });
+            document.getElementById('testContenteditable').textContent = 'Click here and type something...';
+            updateStatus('🗑️ All fields cleared');
+        }
+        
+        function fillSample() {
+            const sampleText = "Hello! How are you today? This is a test with words like the, you, and, are, good, time, very, when, and more!";
+            document.getElementById('test1').value = sampleText;
+            document.getElementById('testTextarea').value = sampleText;
+            updateStatus('📝 Sample text filled');
+        }
+        
+        function showTips() {
+            alert(`🎯 Errorly Testing Tips:
+
+1. Type common words like: the, you, and, are, for, that, with, have, this, will
+2. Press Tab or Enter to trigger corrections
+3. Click outside text fields to test blur events
+4. Check your browser's top-right for correction notifications
+5. Open the Errorly extension popup to see statistics
+6. Try different input types (text, email, textarea, contenteditable)
+7. Look for words changing to funny alternatives!
+
+Happy testing! 🤪`);
+        }
+        
+        function testNotifications() {
+            // This simulates what Errorly does
+            const messages = [
+                "🎯 Testing notification system!",
+                "🤪 This is how Errorly notifies you!",
+                "✨ Simulated correction complete!"
+            ];
+            
+            messages.forEach((msg, i) => {
+                setTimeout(() => {
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: ${20 + (i * 60)}px;
+                        right: 20px;
+                        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                        color: white;
+                        padding: 10px 20px;
+                        border-radius: 25px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                        z-index: 9999;
+                        font-family: 'Comic Sans MS', cursive, sans-serif;
+                    `;
+                    notification.textContent = msg;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 3000);
+                }, i * 500);
+            });
+        }
+        
+        function updateStatus(message) {
+            document.getElementById('status').textContent = message;
+            setTimeout(() => {
+                document.getElementById('status').textContent = '🎭 Errorly Test Page';
+            }, 3000);
+        }
+        
+        // Monitor for changes (simulated correction detection)
+        function setupChangeMonitoring() {
+            const inputs = document.querySelectorAll('input, textarea, [contenteditable]');
+            inputs.forEach(input => {
+                let originalValue = input.value || input.textContent || '';
+                
+                const checkForChanges = () => {
+                    const currentValue = input.value || input.textContent || '';
+                    if (currentValue !== originalValue && currentValue.length > 0) {
+                        // Simple heuristic to detect if words might have been "corrected"
+                        if (originalValue.length > 0 && Math.abs(currentValue.length - originalValue.length) <= 3) {
+                            correctionCount++;
+                            document.getElementById('correctionCount').textContent = correctionCount;
+                            document.getElementById('lastCorrection').textContent = new Date().toLocaleTimeString();
+                            updateStatus(`🎯 Possible correction detected!`);
+                        }
+                    }
+                    originalValue = currentValue;
+                };
+                
+                input.addEventListener('blur', checkForChanges);
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === 'Tab') {
+                        setTimeout(checkForChanges, 200);
+                    }
+                });
+            });
+        }
+        
+        // Initialize monitoring
+        setupChangeMonitoring();
+        
+        // Welcome message
+        setTimeout(() => {
+            updateStatus('🎭 Ready to test Errorly!');
+        }, 1000);
+        
+        console.log('🎭 Errorly test page loaded! Start typing to test the extension.');
+    </script>
+</body>
+</html>

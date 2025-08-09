@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absurd Autocorrect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <div class="title-section">
+                <span class="emoji">🌀</span>
+                <h1 class="title">Absurd Autocorrect</h1>
+            </div>
+            <p class="subtitle">Turn your typing into chaos</p>
+        </div>
+        
+        <div class="controls">
+            <button id="activateBtn" class="activate-btn">
+                <span class="btn-text">Activate Chaos</span>
+                <span class="btn-emoji">🤯</span>
+            </button>
+            
+            <div class="toggle-section">
+                <label class="toggle-label">
+                    <span class="toggle-text">Enable Thesaurus Mode</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="thesaurusToggle" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        <div class="status">
+            <div id="statusText" class="status-text">Ready to cause chaos! 🎉</div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 
