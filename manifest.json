@@ -1,21 +1,27 @@
+
 {
   "manifest_version": 3,
-  "name": "Errorly - The Unhelpful Autocorrect",
+  "name": "Errorly - The Mean Autocorrect",
   "version": "1.0.0",
-  "description": "Making your text worse, one correction at a time! 🤦‍♂️",
+  "description": "Replaces words with insulting, sarcastic alternatives. Because nice is boring.",
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting"
   ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["background.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Errorly - Unhelpfully Yours",
+    "default_title": "Errorly - Making Text Meaner",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

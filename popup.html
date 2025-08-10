@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absurd Autocorrect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="utf-8">
+  <title>Errorly - The Mean Autocorrect</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div class="popup-container">
-        <div class="header">
-            <div class="title-section">
-                <span class="emoji">🌀</span>
-                <h1 class="title">Absurd Autocorrect</h1>
-            </div>
-            <p class="subtitle">Turn your typing into chaos</p>
-        </div>
-        
-        <div class="controls">
-            <button id="activateBtn" class="activate-btn">
-                <span class="btn-text">Activate Chaos</span>
-                <span class="btn-emoji">🤯</span>
-            </button>
-            
-            <div class="toggle-section">
-                <label class="toggle-label">
-                    <span class="toggle-text">Enable Thesaurus Mode</span>
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="thesaurusToggle" class="toggle-input">
-                        <span class="toggle-slider"></span>
-                    </div>
-                </label>
-            </div>
-        </div>
-        
-        <div class="status">
-            <div id="statusText" class="status-text">Ready to cause chaos! 🎉</div>
-        </div>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">ERRORLY</h1>
+      <p class="subtitle">Making Text Meaner Since Never</p>
+    </header>
+
+    <div class="activation-section">
+      <h3>EXTENSION STATUS</h3>
+      <div class="activation-toggle">
+        <button id="extensionToggle" class="toggle-btn active">EXTENSION ON</button>
+      </div>
+      <p class="activation-description" id="activationDescription">
+        ERRORLY is currently ACTIVE and ready to make text meaner!
+      </p>
     </div>
-    
-    <script src="popup.js"></script>
+
+    <div class="mode-section">
+      <h3>MODE SELECTION</h3>
+      <div class="mode-toggle">
+        <button id="liveMode" class="mode-btn active">LIVE MODE</button>
+        <button id="enterMode" class="mode-btn">ENTER MODE</button>
+      </div>
+      <p class="mode-description" id="modeDescription">
+        LIVE: Words get replaced as you type. ENTER: Words get replaced when you press Enter.
+      </p>
+    </div>
+
+    <div class="stats-section">
+      <h3>DESTRUCTION STATS</h3>
+      <div class="stat-item">
+        <span class="stat-label">Insults Injected:</span>
+        <span class="stat-value" id="insultCount">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Current Mode:</span>
+        <span class="stat-value" id="currentMode">LIVE</span>
+      </div>
+    </div>
+
+    <div class="dictionary-section">
+      <h3>MEAN DICTIONARY</h3>
+      <p class="dictionary-hint">Edit these replacements to make them even meaner:</p>
+      <textarea id="dictionaryEditor" class="dictionary-editor" rows="8" placeholder="Loading dictionary..."></textarea>
+      <button id="saveDictionary" class="save-btn">SAVE DICTIONARY</button>
+    </div>
+
+    <div class="footer">
+      <p class="warning">⚠️ Warning: This extension is intentionally mean. Use responsibly.</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
-</html> 
+</html>
