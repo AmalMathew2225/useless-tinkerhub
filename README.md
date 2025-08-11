@@ -1,3 +1,44 @@
+<<<<<<< HEAD
+<img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
+
+
+# Absurd Autocorrect Chrome Extension 🎯
+
+
+## A quirky Chrome extension that turns your typing into chaos with absurd autocorrect 
+### Team Name: Uppukandam Brothers
+
+#Features
+- **Chaos Mode**: Activate absurd autocorrect that replaces common words with ridiculous alternatives
+- **Thesaurus Mode**: Enhanced word replacement with more sophisticated absurdity
+- **Quirky UI**: Fun, playful interface with spinning emojis and pastel colors
+- **Mobile-Friendly**: Responsive design that works on all screen sizes
+- **Keyboard Shortcuts**: 
+  - Spacebar: Toggle chaos mode
+  - T key: Toggle thesaurus mode
+
+
+### Team Members
+Member 1- Akash EA
+Member 2- Amal Mathew Abraham
+
+
+
+### The Problem (that doesn't exist)
+Peaceful life
+
+### The Solution (that nobody asked for)
+Irritate People
+
+## Technical Details
+### Technologies/Components Used
+For Software:
+- [Languages used]- css,js,html
+- [Frameworks used]-css,js,html
+- [Tools used]-cursor, vs code
+
+# Installation
+=======
 # 🎭 Errorly - The Mean Autocorrect Extension
 
 A Chrome extension that intentionally replaces words with insulting, sarcastic, or otherwise rude/funny alternatives. Because nice is boring.
@@ -12,6 +53,7 @@ A Chrome extension that intentionally replaces words with insulting, sarcastic, 
 - **Case-Preserving**: Maintains original text casing (e.g., "Pope" → "Soap Breath", "POPE" → "SOAP BREATH")
 - **Whole Word Matching**: Only replaces complete words, preserving punctuation
 - **Customizable Dictionary**: Edit the replacement list through the popup interface
+>>>>>>> e51dcbb (Updated files)
 
 ### 🌐 Universal Compatibility
 - Works on all websites
@@ -19,6 +61,34 @@ A Chrome extension that intentionally replaces words with insulting, sarcastic, 
 - Ignores password fields and autocomplete=off elements
 - Processes both existing page content and dynamically added content
 
+<<<<<<< HEAD
+# Run
+1. **Click the extension icon** in your Chrome toolbar
+2. **Click "Activate Chaos"** to enable absurd autocorrect
+3. **Toggle "Thesaurus Mode"** for enhanced absurdity
+4. **Start typing** on any website and watch the magic happen!
+
+### Project Documentation
+For Software:
+
+# Screenshots (Add at least 3)
+<img width="863" height="562" alt="Annotation 2025-08-09 181413" src="https://github.com/user-attachments/assets/8509564f-ee3f-4b89-9645-0b62053752b1" />
+
+
+<img width="1909" height="986" alt="image" src="https://github.com/user-attachments/assets/af29fbf1-bc7b-45bf-9d74-0003c944532e" />
+
+
+
+# Build Photos
+![Components](Add photo of your components here)
+*List out all components shown*
+
+![Build](Add photos of build process here)
+*Explain the build steps*
+
+![Final](Add photo of final product here)
+*Explain the final build*
+=======
 ### 📊 Statistics & Monitoring
 - Tracks number of insults injected per session
 - Displays current mode and replacement count
@@ -166,13 +236,32 @@ Want to make Errorly even meaner? Contributions welcome!
 4. Submit a pull request
 
 ## 📄 License
+>>>>>>> e51dcbb (Updated files)
 
-This project is open source and available under the MIT License.
+### Project Demo
+# Video
+[Add your demo video link here]
+*Explain what the video demonstrates*
+
+# Additional Demos
+[Add any extra demo materials/links]
+
+## Team Contributions
+- [Name 1]: [Specific contributions]
+- [Name 2]: [Specific contributions]
+- [Name 3]: [Specific contributions]
 
 ## ⚠️ Disclaimer
 
 This extension is intended for entertainment purposes. The mean word replacements are meant to be funny, not genuinely offensive. Use responsibly and consider your audience when activating it in professional or sensitive contexts.
 
 ---
+Made with ❤️ at TinkerHub Useless Projects 
 
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
+
+<<<<<<< HEAD
+=======
 **Made with 💔 by developers who gave up on being nice** 
+>>>>>>> e51dcbb (Updated files)

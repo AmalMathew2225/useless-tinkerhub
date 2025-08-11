@@ -34,16 +34,24 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Handle messages from content scripts
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log('Background received message:', request);
+  
   if (request.action === 'insultCountUpdate') {
-    // Forward insult count updates to popup if it's open
-    chrome.runtime.sendMessage(request);
+    // Forward insult count updates to any open popup
+    chrome.runtime.sendMessage(request).catch((error) => {
+      // Popup might not be open, this is normal
+      console.log('No popup to forward message to');
+    });
+  }
+  
+  // Always send a response to prevent "port closed" errors
+  if (sendResponse) {
+    sendResponse({ received: true });
   }
 });
 
 // Handle extension icon click (optional - could open popup or activate)
 chrome.action.onClicked.addListener((tab) => {
-  // This is optional since we have a popup
-  // Could be used for quick activation/deactivation
   console.log('Errorly icon clicked on tab:', tab.id);
 });
 

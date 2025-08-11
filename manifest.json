@@ -1,4 +1,3 @@
-
 {
   "manifest_version": 3,
   "name": "Errorly - The Mean Autocorrect",
@@ -8,6 +7,9 @@
     "activeTab",
     "storage",
     "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "content_scripts": [
     {

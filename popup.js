@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateModeDisplay();
     updateInsultCount();
     loadDictionary(result.dictionary);
+    
+    // Ensure content script is loaded in current tab
+    ensureContentScriptLoaded();
+    
+    console.log('Popup loaded with settings:', {
+      isExtensionActive,
+      currentMode,
+      insultCount
+    });
   });
 
   // Extension toggle
@@ -112,12 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
       enterModeBtn.disabled = false;
       liveModeBtn.style.opacity = '1';
       enterModeBtn.style.opacity = '1';
-      // Restore normal mode description
-      if (currentMode === 'LIVE') {
-        modeDescription.textContent = 'LIVE: Words get replaced as you type. ENTER: Words get replaced when you press Enter.';
-      } else {
-        modeDescription.textContent = 'ENTER: Words get replaced when you press Enter. LIVE: Words get replaced as you type.';
-      }
     }
     
     currentModeDisplay.textContent = currentMode;
@@ -166,6 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.tabs.sendMessage(tabs[0].id, {
           action: 'updateMode',
           mode: currentMode
+        }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.log('Content script not ready, injecting...');
+            injectContentScript(tabs[0].id, () => {
+              // Retry sending the message after injection
+              chrome.tabs.sendMessage(tabs[0].id, {
+                action: 'updateMode',
+                mode: currentMode
+              });
+            });
+          }
         });
       }
     });
@@ -177,6 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.tabs.sendMessage(tabs[0].id, {
           action: 'updateDictionary',
           dictionary: dictionary
+        }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.log('Content script not ready, injecting...');
+            injectContentScript(tabs[0].id, () => {
+              // Retry sending the message after injection
+              chrome.tabs.sendMessage(tabs[0].id, {
+                action: 'updateDictionary',
+                dictionary: dictionary
+              });
+            });
+          }
         });
       }
     });
@@ -188,6 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.tabs.sendMessage(tabs[0].id, {
           action: 'updateActivation',
           isActive: isExtensionActive
+        }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.log('Content script not ready, injecting...');
+            injectContentScript(tabs[0].id, () => {
+              // Retry sending the message after injection
+              chrome.tabs.sendMessage(tabs[0].id, {
+                action: 'updateActivation',
+                isActive: isExtensionActive
+              });
+            });
+          }
         });
       }
     });
@@ -201,4 +237,48 @@ document.addEventListener('DOMContentLoaded', () => {
       saveSettings();
     }
   });
+
+  // Function to inject content script if not already loaded
+  function injectContentScript(tabId, callback) {
+    chrome.scripting.executeScript({
+      target: { tabId: tabId },
+      files: ['content.js']
+    }, () => {
+      if (chrome.runtime.lastError) {
+        console.error('Failed to inject content script:', chrome.runtime.lastError);
+      } else {
+        console.log('Content script injected successfully');
+        if (callback) callback();
+      }
+    });
+  }
+
+  // Function to ensure content script is loaded in current tab
+  function ensureContentScriptLoaded() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]) {
+        // Try to send a ping message to see if content script is loaded
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'ping' }, (response) => {
+          if (chrome.runtime.lastError) {
+            console.log('Content script not loaded, injecting...');
+            injectContentScript(tabs[0].id, () => {
+              // Send current settings after injection
+              sendActivationToContentScript();
+              sendModeToContentScript();
+              if (dictionaryEditor.value) {
+                try {
+                  const dictionary = JSON.parse(dictionaryEditor.value);
+                  sendDictionaryToContentScript(dictionary);
+                } catch (e) {
+                  console.log('No valid dictionary to send');
+                }
+              }
+            });
+          } else {
+            console.log('Content script already loaded');
+          }
+        });
+      }
+    });
+  }
 });
